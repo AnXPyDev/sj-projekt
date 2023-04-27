@@ -1,0 +1,1 @@
+Diskusne Forum - Jozef Komaromy
