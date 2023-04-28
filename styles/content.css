@@ -1,0 +1,96 @@
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--pad);
+	padding: var(--pad);
+}
+
+#content-center {
+	padding: calc(3 * var(--pad));
+	min-height: 100%;
+}
+
+.post {
+	background-color: var(--clr-bg);
+	color: var(--con-bg);
+	display: flex;
+	flex-direction: column;
+}
+
+.post-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: var(--pad);
+	padding: var(--pad);
+	background-color: var(--clr-bg-d1);
+	flex-wrap: wrap;
+}
+
+.post-header-left {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: var(--pad);
+	flex-wrap: wrap;
+}
+
+.post-username a {
+	color: var(--con-bg);
+	text-decoration: none;
+}
+
+.post-username a:hover {
+	color: var(--con-bg);
+	text-decoration: underline;
+}
+
+
+.post-header-right {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	gap: var(--pad);
+	flex-wrap: wrap;
+}
+
+.post-content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--pad);
+	padding: var(--pad);
+}
+
+.post-footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: var(--pad);
+	padding: var(--pad);
+	flex-wrap: wrap;
+}
+
+.post-options {
+	display: flex;
+	flex-direction: row;
+	gap: var(--pad);
+	flex-wrap: wrap;
+}
+
+.post-button {
+	text-align: center;
+	padding: var(--pad);
+	background-color: var(--clr-bg-d1);
+	color: var(--con-bg);
+}
+
+.post-button:hover {
+	cursor: pointer;
+	background-color: var(--clr-bg-d2);
+	color: var(--con-bg);
+}
+
+.post-button-like {
+}
+
+

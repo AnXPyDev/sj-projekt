@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+@import "fontawesome.css";
+
+:root {
+	--clr-bg: #505050;
+	--con-bg: #FFFFFF;
+	--clr-bg-l1: #606060;
+	--con-bg-l1: var(--con-bg);
+	--clr-bg-l2: #707070;
+	--con-bg-l2: var(--con-bg);
+	--clr-bg-d1: #404040;
+	--con-bg-d1: var(--con-bg);
+	--clr-bg-d2: #303030;
+	--con-bg-d2: var(--con-bg);
+
+	--pad: 10px;
+	--fs: 14px;
+}
+
+body {
+	background-color: var(--clr-bg-d2);
+	color: var(--con-bg-d2);
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+	font-size: var(--fs);
+}
+
+header, footer {
+	background-color: var(--clr-bg);
+	color: var(--con-bg);
+	display: flex;
+	flex-direction: row;
+}
+
+p {
+	margin: 0;
+}
