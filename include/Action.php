@@ -2,12 +2,10 @@
 class Action {
 	public $arglist;
 	public $callback;
-	public $validate;
 
-	function __construct($arglist, $callback, $validate = NULL) {
+	function __construct($arglist, $callback) {
 		$this->arglist = $arglist;
 		$this->callback = $callback;
-		$this->validate = $validate;
 	}
 
 	function validate($args) {
@@ -17,16 +15,13 @@ class Action {
 			}
 		}
 
-		if (isset($this->validate) && !$this->validate($args)) {
-			return false;
-		}
-
 		return true;
 	}
 
 	function __invoke($args, &$result) {
 		if (!$this->validate($args)) {
 			$result['success'] = false;
+			$result['error'] = "Arg validation failed";
 			return;
 		}
 
