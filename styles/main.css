@@ -12,14 +12,16 @@
 	--con-bg-d1: var(--con-bg);
 	--clr-bg-d2: #303030;
 	--con-bg-d2: var(--con-bg);
+	--clr-bg-d3: #101010;
+	--con-bg-d3: var(--con-bg);
 
 	--pad: 10px;
 	--fs: 14px;
 }
 
 body {
-	background-color: var(--clr-bg-d2);
-	color: var(--con-bg-d2);
+	background-color: var(--clr-bg-d3);
+	color: var(--con-bg-d3);
 	display: flex;
 	flex-direction: column;
 	padding: 0;
