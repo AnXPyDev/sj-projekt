@@ -1,0 +1,31 @@
+.thread-list {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--pad) * 0.5);
+}
+
+.thread {
+	background-color: var(--clr-bg);
+	color: var(--con-bg);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.thread-left, .thread-right {
+	display: flex;
+	flex-direction: row;
+	gap: var(--pad);
+	align-items: center;
+	padding: var(--pad);
+}
+
+.thread-right {
+	background-color: var(--clr-bg-d1);
+}
+
+.thread-title {
+	font-size: calc(var(--fs) * 1.2);
+}
+
+

@@ -7,19 +7,44 @@
 		<title>Diskusne forum</title>
 		<link rel="stylesheet" href="styles/main.css">
 		<link rel="stylesheet" href="styles/content.css">
+		<link rel="stylesheet" href="styles/thread.css">
+		<link rel="stylesheet" href="styles/post.css">
 	</head>
 	<body>
 		<header>
-			<nav>
-			</nav>
+			<div class="header-left">
+				<div class="header-title">Forum</div>
+				<a href="#"><i class="fas fa-home"></i> Index</a>
+			</div>
+			<div class="header-right">
+				<a href="#"><i class="fas fa-user-circle"></i> another343</a>
+				<a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+				<a href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+				<a href="#"><i class="fas fa-user-plus"></i> Register</a>
+			</div>
 		</header>
 		<main id="content-center" class="content">
+			<section class="content-title">
+				Index
+			</section>
+			<section class="thread-list">
+				<div class="thread">
+					<div class="thread-left">
+						<a class="thread-title">Thread #1</a>
+					</div>
+					<div class="thread-right">
+							<a class="thread-user" href="#"><i class="fas fa-user"></i> another343</a>
+							<div class="thread-date"><i class="fas fa-calendar-alt"></i> 19. 2. 2024</div>
+							<div class="thread-time"><i class="fas fa-clock"></i> 18:34</div>
+					</div>
+				</div>
+			</section>
 			<section class="post-list">
 				<div id="post1" class="post">
 					<div class="post-header">
 						<div class="post-header-left">
 							<div class="post-id"><i class="fas fa-fingerprint"></i> 3312890</div>
-							<div class="post-username"><i class="fas fa-user"></i> <a href="profile.php?username=another343">another343</a></div>
+							<a class="post-username"><i class="fas fa-user"></i> another343</a>
 						</div>
 						<div class="post-header-right">
 							<div class="post-date"><i class="fas fa-calendar-alt"></i> 19. 2. 2024</div>
@@ -42,8 +67,18 @@
 					</div>
 				</div>
 			</section>
+			<section class="page-nav">
+				<a href="#"><i class="fas fa-angle-double-left"></i></a>
+				<a href="#">1</a>
+				<a href="#">2</a>
+				<a class="current" href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#"><i class="fas fa-angle-double-right"></i></a>
+			</section>
 		</main>
 		<footer>
+			<div class="footer-credit">Created by Jozef Koamaromy</div>
 		</footer>
 	</body>
 </html>
