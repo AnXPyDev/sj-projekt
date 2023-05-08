@@ -13,7 +13,7 @@ header("Content-Type: application/json");
 $result = [];
 $result['success'] = false;
 
-error_log(print_r($_POST, true));
+#error_log(print_r($_POST, true));
 
 if (!isset($_POST['action'])) {
 	$result['error'] = "No action name";

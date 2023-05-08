@@ -6,14 +6,14 @@ include("include/config.php");
 <html lang="en">
 	<head>
 		<?php include("partials/head.php"); ?>
-		<script src="scripts/login.js"></script>
+		<script src="scripts/register.js"></script>
 		<title>Diskusne forum - Login</title>
 		<link rel="stylesheet" href="styles/main.css">
 		<link rel="stylesheet" href="styles/content.css">
 	</head>
 	<body>
-		<h1>Login</h1>
-		<form name="login_form" id="login_form" action="javascript:" onsubmit="login(this);">
+		<h1>Register</h1>
+		<form name="register_form" id="register_form" action="javascript:" onsubmit="register(this);">
 	  		<label for="inusername">Username:</label><br>
 	  		<input type="text" id="inusername" name="username"><br>
 	  		<label for="inpassword">Password:</label><br>
