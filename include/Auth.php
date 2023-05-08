@@ -29,6 +29,7 @@ class Auth {
 		$this->qry_del_session = $db->prepare('delete from session where session=:session_id');
 		$this->qry_del_all_session = $db->prepare('delete from session where user_id=:user_id');
 		$this->qry_get_user_data = $db->prepare('select * from user where id=:user_id');
+		$this->qry_get_user_data->setFetchMode(PDO::FETCH_ASSOC);
 		session_start();
 	}
 
@@ -98,6 +99,9 @@ class Auth {
 		
 		$this->qry_get_user_data->execute(['user_id' => $this->user_id]);
 		$this->user_data = $this->qry_get_user_data->fetch();
+		unset($this->user_data["password_hash"]);
+		unset($this->user_data["password_salt"]);
+
 		$this->session_valid = true;
 		
 	}

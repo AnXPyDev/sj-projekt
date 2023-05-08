@@ -5,5 +5,6 @@ return new Action([], function($args, &$result) {
 	$result['session_id'] = session_id();
 	$result['login'] = $auth->check();
 	$result['uid'] = $auth->getuid();
+	$result['user_data'] = $auth->get_user_data();
 });
 ?>
