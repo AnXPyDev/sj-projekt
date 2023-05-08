@@ -8,6 +8,7 @@ $register = @include_once("include/actions/register.php");
 $login = @include_once("include/actions/login.php");
 $logout = @include_once("include/actions/logout.php");
 $newthread = @include_once("include/actions/newthread.php");
+$newpost = @include_once("include/actions/newpost.php");
 
 $logout([], $result);
 print_r($result); echo "<br>";
@@ -45,6 +46,20 @@ foreach ($credentials as $cred) {
 		$result = [];
 		$newthread(["title" => $lipsum[array_rand($lipsum)]], $result);
 		echo "Newthread ".print_r($result, true)."<br>";
+	}
+	$result = [];
+	$logout([], $result);
+	echo "Logout ".print_r($result, true)."<br>";
+}
+
+foreach ($credentials as $cred) {
+	$result = [];
+	$login($cred, $result);
+	echo "Login ".print_r($cred, true)." ".print_r($result, true)."<br>";
+	for ($i = 0; $i < 10; $i++) {
+		$result = [];
+		$newpost(["thread_id" => $i, "content" => $lipsum[array_rand($lipsum)]], $result);
+		echo "Newpost ".print_r($result, true)."<br>";
 	}
 	$result = [];
 	$logout([], $result);
