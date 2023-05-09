@@ -36,6 +36,8 @@ body {
 	font-size: var(--fs);
 }
 
+
+
 header, footer {
 	background-color: var(--clr-bg);
 	color: var(--con-bg);
@@ -45,6 +47,10 @@ header, footer {
 	align-items: center;
 	padding: var(--pad);
 	gap: var(--pad);
+}
+
+footer {
+	margin-top: auto;
 }
 
 header .header-title {
@@ -57,7 +63,7 @@ header .header-left, header .header-right {
 	gap: var(--pad);
 }
 
-header a {
+header a, header .button {
 	text-align: center;
 	font-size: calc(var(--fs) * 1.2);
 }
@@ -72,3 +78,13 @@ a:hover {
 	text-decoration: underline;
 }
 
+.button {
+	color: inherit;
+	text-decoration: none;
+}
+
+.button:hover {
+	color: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+}

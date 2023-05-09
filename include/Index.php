@@ -2,6 +2,7 @@
 require_once("config.php");
 require_once("Database.php");
 require_once("Thread.php");
+require_once("Pager.php");
 
 class Index {
 	private $qry_get_thread_count;
@@ -44,6 +45,12 @@ class Index {
 			echo $thread->make_html();
 		}
 	}	
+
+	public function make_pager() {
+		$this->qry_get_thread_count->execute();
+		$thread_count = $this->qry_get_thread_count->fetch()[0];
+		return new Pager("index.php?page=", $this->page, $thread_count, 10, 5);
+	}
 }
 
 $index = new Index();

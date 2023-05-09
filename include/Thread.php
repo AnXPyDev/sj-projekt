@@ -2,9 +2,10 @@
 require_once("User.php");
 require_once("Database.php");
 require_once("Post.php");
+require_once("Pager.php");
 
 class Thread {
-	private $data;
+	public $data;
 	private $posts;
 	private $page;
 
@@ -61,6 +62,18 @@ END;
 		foreach ($this->posts as $post) {
 			echo $post->make_html();
 		}
+	}
+
+	public function make_pager() {
+		global $database;
+
+		$db = $database->ensure();
+		$qry_count = $db->prepare('select count(*) from post where thread_id = :thread_id');
+		$qry_count->bindValue(":thread_id", $this->data["id"], PDO::PARAM_INT);
+		$qry_count->execute();
+		
+		$post_count = $qry_count->fetch()[0];
+		return new Pager("thread.php?id={$this->data["id"]}&page=", $this->page, $post_count, 10, 5);
 	}
 
 }

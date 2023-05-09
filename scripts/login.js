@@ -14,7 +14,7 @@ function login(form) {
 			alert("login successful");
 			window.location = "index.php";
 		} else {
-			alert("login failed, try again");
+			alert("Login failed: " + data["error"] ?? "no error returned");
 		}
 	});
 }

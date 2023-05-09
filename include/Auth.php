@@ -116,6 +116,7 @@ class Auth {
 	}
 
 	public function perm($user_id) {
+		global $user;
 		if ($this->check()) {
 			if ($this->user_id == $user_id || $user("admin") > 0) {
 				return true;
