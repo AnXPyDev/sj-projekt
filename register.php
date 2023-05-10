@@ -12,13 +12,15 @@ include("include/config.php");
 		<link rel="stylesheet" href="styles/content.css">
 	</head>
 	<body>
-		<h1>Register</h1>
-		<form name="register_form" id="register_form" action="javascript:" onsubmit="register(this);">
-	  		<label for="inusername">Username:</label><br>
-	  		<input type="text" id="inusername" name="username"><br>
-	  		<label for="inpassword">Password:</label><br>
-			<input type="password" id="inpassword" name="password"><br>
-			<input type="submit" value="Submit">
-		</form>
+		<section class="center">
+			<h1>Register</h1>
+			<form name="register_form" id="register_form" action="javascript:" onsubmit="register(this);">
+				<label for="inusername">Username:</label>
+				<input type="text" id="inusername" name="username">
+				<label for="inpassword">Password:</label>
+				<input type="password" id="inpassword" name="password">
+				<button type="submit"><i class="fas fa-user-plus"></i> Register</button>
+			</form>
+		</section>
 	</body>
 </html>

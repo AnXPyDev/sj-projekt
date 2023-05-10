@@ -28,4 +28,11 @@
 	font-size: calc(var(--fs) * 1.2);
 }
 
+#thread_form {
+	flex-direction: row;
+}
+
+#thread_form #intitle {
+	flex-grow: 1;
+}
 

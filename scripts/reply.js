@@ -21,3 +21,7 @@ async function reply(form) {
 		}
 	});
 }
+
+function reply_button(button) {
+	document.getElementById("incontent").value += ">>" + button.getAttribute("post_id") + "\n";
+}

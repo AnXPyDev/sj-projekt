@@ -14,7 +14,7 @@ function register(form) {
 			alert("register successful, please login");
 			window.location = "login.php";
 		} else {
-			alert("register failed, try again");
+			alert("Register failed: " + data["error"] ?? "no error returned");
 		}
 	});
 }

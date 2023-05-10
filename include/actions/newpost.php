@@ -5,7 +5,7 @@ require_once("include/Database.php");
 require_once("include/Auth.php");
 require_once("include/User.php");
 
-return new Action(['thread_id'], function($args, &$result) {
+return new Action(['thread_id', 'content'], function($args, &$result) {
 	global $database, $auth, $user, $mysql_datetime_fmt;
 
 	if (!$auth->check()) {
@@ -32,7 +32,7 @@ return new Action(['thread_id'], function($args, &$result) {
 		"user_id" => $user("id"),
 		"created" => $created,
 		"modified" => $created,
-		"content" => $args['content'] ?? NULL
+		"content" => $args['content']
 	]);
 
 	$result['success'] = true;

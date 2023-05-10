@@ -18,10 +18,9 @@ return new Action(['title'], function($args, &$result) {
 
 	$user_id = $user("id");	
 
-
 	$qry_make_thread->execute([
 		"user_id" => $user("id"),
-		"title" => $args["title"],
+		"title" => $args['title'],
 		"created" => date($mysql_datetime_fmt, time())
 	]);
 

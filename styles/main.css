@@ -25,6 +25,10 @@ p {
 	margin: 0;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background-color: var(--clr-bg-d2);
 	color: var(--con-bg-d2);
@@ -78,13 +82,56 @@ a:hover {
 	text-decoration: underline;
 }
 
-.button {
+button {
 	color: inherit;
+	border: none;
 	text-decoration: none;
 }
 
-.button:hover {
+button:hover {
 	color: inherit;
 	text-decoration: underline;
 	cursor: pointer;
 }
+
+section.center {
+	width 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+form {
+	background-color: var(--clr-bg);
+	color: var(--con-bg);
+	display: flex;
+	flex-direction: column;
+	gap: var(--pad);
+	padding: var(--pad);
+}
+
+form label {
+	font-size: calc(var(--fs) * 1.2);
+	color: inherit;
+}
+
+form input, form textarea{
+	background-color: var(--clr-bg-d2);
+	color: var(--con-bg-d2);
+	border: 1px solid var(--con-bg-d2);
+}
+
+form button {
+	text-align: center;
+	padding: var(--pad);
+	background-color: var(--clr-bg-d1);
+	color: var(--con-bg);
+
+}
+
+form button:hover {
+	cursor: pointer;
+	background-color: var(--clr-bg-d2);
+	color: var(--con-bg);
+}
+

@@ -17,10 +17,11 @@ class Thread {
 		global $users;
 		$user = $users($this->data["user_id"]);
 		$date = date_create($this->data["created"]);
+		$title = htmlspecialchars($this->data["title"]);
 		echo <<<END
 <div class="thread">
 	<div class="thread-left">
-		<a href="thread.php?id={$this->data["id"]}" class="thread-title">{$this->data["title"]}</a>
+		<a href="thread.php?id={$this->data["id"]}" class="thread-title">{$title}</a>
 	</div>
 	<div class="thread-right">
 			<a class="thread-user" href="user.php?id={$user("id")}"><i class="fas fa-user"></i> {$user("username")}</a>

@@ -78,3 +78,9 @@
 }
 
 
+#reply_form textarea {
+	width: 100%;
+	height: calc(var(--fs) * 10);
+	resize: vertical;
+}
+

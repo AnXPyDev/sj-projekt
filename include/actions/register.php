@@ -6,6 +6,21 @@ require_once("include/Auth.php");
 return new Action(['username', 'password'], function($args, &$result) {
 	global $database, $auth;
 
+	#Sanitize username and password
+
+	if (!(preg_match('/^[a-zA-Z0-9_\-]*$/', $args["username"])
+		&& strlen($args["username"]) > 2
+		&& htmlspecialchars($args["username"]) == $args["username"])) {
+		$result["error"] = "Username can only contain letters, dash, underscore and must be at least 3 characters long";
+		goto exit_fail;
+	}
+
+	if (strlen($args["password"]) < 3) {
+		$result["error"] = "Password must be at least 3 characters long";
+		goto exit_fail;
+	}
+
+
 	$db = $database->ensure();
 	
 	$qry_user_count = $db->prepare('select id from user where admin > 0');
