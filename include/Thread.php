@@ -18,7 +18,7 @@ class Thread {
 		$user = $users($this->data["user_id"]);
 		$date = date_create($this->data["created"]);
 		$title = htmlspecialchars($this->data["title"]);
-		echo <<<END
+		return <<<END
 <div class="thread">
 	<div class="thread-left">
 		<a href="thread.php?id={$this->data["id"]}" class="thread-title">{$title}</a>
@@ -60,9 +60,12 @@ END;
 
 	public function make_post_list() {
 		$this->create_posts();
+		$html = "";
 		foreach ($this->posts as $post) {
-			echo $post->make_html();
+			$html = $html.$post->make_html();
 		}
+
+		return $html;
 	}
 
 	public function make_pager() {

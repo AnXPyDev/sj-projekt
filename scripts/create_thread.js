@@ -1,4 +1,4 @@
-async function create_thread(form) {
+function create_thread(form) {
 	const data = new FormData(form);
 	const body = {
 		title: data.get("title"),
@@ -10,7 +10,7 @@ async function create_thread(form) {
 	}
 	post_action("newthread", body, (success, data) => {
 		if (success) {
-			alert("Thread created");
+			//alert("Thread created");
 			window.location = "index.php";
 		} else {
 			alert("Thread creation failed:" + data["error"] ?? "no error returned");

@@ -28,21 +28,21 @@ class Pager {
 			$end_page = $max_page;
 		}
 
-		echo <<<END
+		$html = <<<END
 				<a href="{$this->url}1"><i class="fas fa-angle-double-left"></i></a>
 END;
 
 		for ($i = $min_page; $i <= $end_page; $i++) {
 			$current_class = $i == $this->current ? 'class="current" ' : "";
-			echo <<<END
+			$html = $html.<<<END
 				<a {$current_class}href="{$this->url}{$i}">{$i}</a>
 END;
 		}
 
-		echo <<<END
+		$html = $html.<<<END
 				<a href="{$this->url}{$max_page}"><i class="fas fa-angle-double-right"></i></a>
 END;
-
+		return $html;
 	}
 }
 ?>

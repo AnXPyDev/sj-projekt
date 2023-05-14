@@ -1,4 +1,4 @@
-async function reply(form) {
+function reply(form) {
 	const data = new FormData(form);
 	const body = {
 		thread_id: data.get("thread_id"),
@@ -14,7 +14,7 @@ async function reply(form) {
 
 	post_action("newpost", body, (success, data) => {
 		if (success) {
-			alert("Post created");
+			//alert("Post created");
 			window.location.reload();
 		} else {
 			alert("Post creation failed:" + data["error"] ?? "no error returned");
@@ -25,3 +25,9 @@ async function reply(form) {
 function reply_button(button) {
 	document.getElementById("incontent").value += ">>" + button.getAttribute("post_id") + "\n";
 }
+
+function reply_cancel_button(button) {
+	document.getElementById("incontent").value = "";
+}
+
+

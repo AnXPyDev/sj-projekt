@@ -27,6 +27,8 @@ thread_not_found:
 		<?php include("partials/head.php"); ?>
 		<title>Diskusne forum</title>
 		<script src="scripts/reply.js"></script>
+		<script src="scripts/preview.js"></script>
+		<script src="scripts/reaction.js"></script>
 		<link rel="stylesheet" href="styles/main.css">
 		<link rel="stylesheet" href="styles/content.css">
 		<link rel="stylesheet" href="styles/thread.css">
@@ -36,13 +38,13 @@ thread_not_found:
 		<?php include("partials/header.php"); ?>
 		<main id="content-center" class="content">
 			<section class="thread-list">
-				<?php $thread->make_html(); ?>
+				<?php echo $thread->make_html(); ?>
 			</section>
 			<section class="thread-list">
-				<?php $thread->make_post_list(); ?>
+				<?php echo $thread->make_post_list(); ?>
 			</section>
 			<section class="page-nav">
-				<?php $thread->make_pager()->make_html(); ?>
+				<?php echo $thread->make_pager()->make_html(); ?>
 			</section>
 			<?php if ($auth->check()) { include("partials/reply.php"); } ?>
 		</main>

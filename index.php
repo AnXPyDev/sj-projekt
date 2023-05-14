@@ -21,10 +21,10 @@ require_once("include/Auth.php");
 				Index
 			</section>
 			<section class="thread-list">
-				<?php $index->make_thread_list(); ?>
+				<?php echo $index->make_thread_list(); ?>
 			</section>
 			<section class="page-nav">
-				<?php $index->make_pager()->make_html(); ?>
+				<?php echo $index->make_pager()->make_html(); ?>
 			</section>
 			<?php if ($auth->check()) { include("partials/create_thread.php"); } ?>
 		</main>
