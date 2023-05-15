@@ -18,10 +18,11 @@ return new Action(['post_id'], function($args, &$result) {
 	$post = new Post($qry->fetch(PDO::FETCH_ASSOC));	
 
 	$result["html"] = $post->make_preview_html();
-
+	
+	$result["success"] = true;
 	return;
 	exit_fail:;
-	$result["success"] = true;
+	$result["success"] = false;
 });
 
 ?>

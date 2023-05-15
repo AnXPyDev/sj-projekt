@@ -115,7 +115,7 @@ form label {
 	color: inherit;
 }
 
-form input, form textarea{
+input, textarea{
 	background-color: var(--clr-bg-d2);
 	color: var(--con-bg-d2);
 	border: 1px solid var(--con-bg-d2);
@@ -133,5 +133,9 @@ form button:hover {
 	cursor: pointer;
 	background-color: var(--clr-bg-d2);
 	color: var(--con-bg);
+}
+
+.display-none {
+	display: none !important;
 }
 

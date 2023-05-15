@@ -27,13 +27,13 @@ class Post {
 		}, $content);
 		#$content = preg_replace('/^\\\\#/m', '#', $content);
 		$content = preg_replace('/ /', '&nbsp', $content);
-		$content = preg_replace('/(&gt;&gt;)([0-9]+)/', '<a class="post-link" href="post.php?id=$2">$0</a>', $content);
+		$content = preg_replace('/(&gt;&gt;)([0-9]+)/', '<a post_id="$2" class="post-link" href="post.php?id=$2">$0</a>', $content);
 		#$content = preg_replace('/^\\\\/m', '\\', $content);
 		$content = preg_replace('/\n/', '<br>', $content);
 		return $content;
 	}
 
-	public function make_html() {
+	public function make_html($include_options = true) {
 		global $users, $auth, $user;
 		$post_user = $users($this->data["user_id"]);
 		$date = date_create($this->data["created"]);
@@ -42,7 +42,7 @@ class Post {
 		
 
 		$html = <<<END
-<div id="post{$this->data["id"]}" class="post">
+<div post_id="{$this->data["id"]}" id="post{$this->data["id"]}" class="post post-standard-mode">
 	<div class="post-header">
 		<div class="post-header-left">
 			<div class="post-id"><i class="fas fa-fingerprint"></i> {$this->data["id"]}</div>
@@ -53,10 +53,13 @@ class Post {
 			<div class="post-time"><i class="fas fa-clock"></i> {$date->format('H:i')}</div>
 		</div>
 	</div>
-	<div class="post-content">{$content}</div>
+	<div class="post-body">
+		<div class="post-content post-standard-mode">{$content}</div>
+		<textarea class="post-editor post-edit-mode"></textarea>
+	</div>
 END;
 
-		if ($auth->check()) {
+		if ($include_options && $auth->check()) {
 			$this->qry_get_score->execute(["post_id" => $this->data["id"]]);
 			$score = $this->qry_get_score->fetch()[0];
 
@@ -76,19 +79,24 @@ END;
 			$html = $html.<<<END
 	<div class="post-footer">
 		<div class="post-options post-options-left">
-			<button post_id="{$this->data["id"]}" onclick="like_button(this)" class="post-button post-button-like {$user_like}"><i class="fas fa-heart"></i></button>
-			<div id="score{$this->data["id"]}" class="post-score">{$score}</div>
-			<button post_id="{$this->data["id"]}" onclick="dislike_button(this)" class="post-button post-button-dislike {$user_dislike}"><i class="fas fa-dumpster-fire"></i></button>
+			<button post_id="{$this->data["id"]}" onclick="like_button(this)" class="post-button post-standard-mode post-button-like {$user_like}"><i class="fas fa-heart"></i></button>
+			<div id="score{$this->data["id"]}" class="post-score post-standard-mode">{$score}</div>
+			<button post_id="{$this->data["id"]}" onclick="dislike_button(this)" class="post-button post-standard-mode post-button-dislike {$user_dislike}"><i class="fas fa-dumpster-fire"></i></button>
 		</div>
 		<div class="post-options post-options-right">
-			<button post_id="{$this->data["id"]}" class="post-button" onclick="reply_button(this)"><i class="fas fa-reply"></i> Reply</button>
 END;
 			if ($auth->perm($post_user("id"))) {
 				$html = $html.<<<END
-			<div class="post-button"><i class="fas fa-edit"></i> Edit</div>
-			<div class="post-button"><i class="fas fa-trash"></i> Delete</div>
+			<button post_id="{$this->data["id"]}" onclick="post_edit(this)" class="post-button post-standard-mode post-button-edit"><i class="fas fa-edit"></i> Edit</button>
+			<button post_id="{$this->data["id"]}" onclick="post_save_edit(this)" class="post-button post-edit-mode post-button-save"><i class="fas fa-save"></i> Save</button>
+			<button post_id="{$this->data["id"]}" onclick="post_cancel_edit(this)" class="post-button post-edit-mode post-button-cancel"><i class="fas fa-times"></i> Cancel</button>
+			<button post_id="{$this->data["id"]}" onclick="post_delete(this)" class="post-button post-standard-mode post-button-delete"><i class="fas fa-trash"></i> Delete</button>
 END;
 			}
+
+			$html = $html.<<<END
+			<button post_id="{$this->data["id"]}" class="post-button post-standard-mode post-button-reply" onclick="reply_button(this)"><i class="fas fa-reply"></i> Reply</button>
+END;
 			$html = $html.<<<END
 		</div>
 	</div>
@@ -102,7 +110,7 @@ END;
 	}
 
 	public function make_preview_html() {
-		return $this->make_html();
+		return $this->make_html(false);
 	}
 
 

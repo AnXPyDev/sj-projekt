@@ -29,6 +29,7 @@ thread_not_found:
 		<script src="scripts/reply.js"></script>
 		<script src="scripts/preview.js"></script>
 		<script src="scripts/reaction.js"></script>
+		<script src="scripts/postmod.js"></script>
 		<link rel="stylesheet" href="styles/main.css">
 		<link rel="stylesheet" href="styles/content.css">
 		<link rel="stylesheet" href="styles/thread.css">
@@ -49,5 +50,6 @@ thread_not_found:
 			<?php if ($auth->check()) { include("partials/reply.php"); } ?>
 		</main>
 		<?php include("partials/footer.php"); ?>
+		<section id="post-preview" class="post"></section>
 	</body>
 </html>
