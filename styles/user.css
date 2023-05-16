@@ -1,0 +1,9 @@
+.user-header {
+	justify-content: center;
+	font-size: calc(1.2 * var(--fs));
+}
+
+.user-options {
+	justify-content: center;
+	padding: var(--pad);
+}

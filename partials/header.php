@@ -17,7 +17,7 @@ END;
 		}
 		echo <<<END
 	<a href="user.php?id={$user("id")}"><i class="fas fa-user-circle"></i> {$user("username")}</a>
-	<div class="button" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+	<button class="button" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
 END;
 	} else {
 		echo <<<END

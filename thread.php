@@ -38,6 +38,7 @@ thread_not_found:
 	<body>
 		<?php include("partials/header.php"); ?>
 		<main id="content-center" class="content">
+			<?php if (isset($thread)): ?>
 			<section class="thread-list">
 				<?php echo $thread->make_html(); ?>
 			</section>
@@ -48,6 +49,9 @@ thread_not_found:
 				<?php echo $thread->make_pager()->make_html(); ?>
 			</section>
 			<?php if ($auth->check()) { include("partials/reply.php"); } ?>
+			<?php else: ?>
+			<h1>Thread not found</h1>
+			<?php endif ?>
 		</main>
 		<?php include("partials/footer.php"); ?>
 		<section id="post-preview" class="post"></section>

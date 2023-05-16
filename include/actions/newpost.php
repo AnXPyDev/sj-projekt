@@ -12,6 +12,11 @@ return new Action(['thread_id', 'content'], function($args, &$result) {
 		$result['error'] = "Not logged in";
 		goto exit_fail;
 	}
+
+	if ($user("banned") == 1) {
+		$result['error'] = "You are banned from creating posts!";
+		goto exit_fail;
+	}
 	
 	$db = $database->ensure();
 	$qry_ensure_thread = $db->prepare('select id from thread where id = :thread_id');

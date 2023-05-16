@@ -13,6 +13,11 @@ return new Action(['title'], function($args, &$result) {
 		goto exit_fail;
 	}
 	
+	if ($user("banned") == 1) {
+		$result['error'] = "You are banned from creating threads!";
+		goto exit_fail;
+	}
+	
 	$db = $database->ensure();	
 	$qry_make_thread = $db->prepare('insert into thread (title, created, user_id) values (:title, :created, :user_id)');
 

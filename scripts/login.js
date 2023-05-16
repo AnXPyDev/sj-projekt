@@ -11,7 +11,7 @@ function login(form) {
 	}
 	post_action("login", body, (success, data) => {
 		if (success) {
-			alert("login successful");
+			//alert("login successful");
 			window.location = "index.php";
 		} else {
 			alert("Login failed: " + data["error"] ?? "no error returned");
