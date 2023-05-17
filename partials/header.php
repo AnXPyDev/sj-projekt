@@ -10,7 +10,7 @@ require_once("include/User.php");
 <div class="header-right">
 <?php
 	if ($auth->check()) {
-		if ($user("admin") > 0) {
+		if ($user("admin") == 2) {
 			echo <<<END
 	<a href="admin.php"><i class="fas fa-toolbox"></i> Admin</a>
 END;

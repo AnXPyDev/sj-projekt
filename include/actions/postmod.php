@@ -13,6 +13,11 @@ return new Action(['post_id', 'mod'], function($args, &$result) {
 		goto exit_fail;
 	}
 
+	if ($user("banned") == 1) {
+		$result['error'] = "You are banned from editing posts";
+		goto exit_fail;
+	}
+
 	$db = $database->ensure();
 	$qry_get_post = $db->prepare('select * from post where id = :post_id');
 	$qry_get_post->execute(['post_id' => $args['post_id']]);

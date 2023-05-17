@@ -12,6 +12,10 @@ return new Action(['post_id', 'type'], function($args, &$result) {
 		goto exit_fail;
 	}
 
+	if ($user("banned") == 1) {
+		$result['error'] = "You are banned from reacting to posts";
+		goto exit_fail;
+	}
 
 	$db = $database->ensure();
 
