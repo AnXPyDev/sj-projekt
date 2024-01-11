@@ -9,6 +9,9 @@ if(count($_POST) == 0) {
 }
 
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: http://localhost:5173", false);
+header("Access-Control-Allow-Headers: Content-Type", false);
+header("Access-Control-Allow-Credentials: true", false);
 
 $result = [];
 $result['success'] = false;
